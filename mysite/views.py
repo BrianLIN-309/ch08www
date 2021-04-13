@@ -75,3 +75,9 @@ def contact(request):
     else:
         form = forms.ContactForm()
     return render(request, 'contact.html', locals())
+
+def post2db(request):
+    post_form = forms.PostForm(request.POST)
+    moods = models.Mood.objects.all()
+    message = '如要張貼訊息，則每一個欄位都要填...'
+    return render(request, 'post2db.html', locals())
